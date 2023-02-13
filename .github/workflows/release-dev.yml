@@ -29,7 +29,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Create ECR repo
-      usees: int128/create-ecr-repository-action@v1
+      uses: int128/create-ecr-repository-action@v1
       with: 
         repository: aws-tcm
     
