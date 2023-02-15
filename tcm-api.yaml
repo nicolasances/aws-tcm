@@ -28,7 +28,8 @@ paths:
             application/json:
               schema:
                 type: array
-                $ref: '#/components/schemas/TCMElement'          
+                items: 
+                  $ref: '#/components/schemas/TCMElement'          
         '404':
           description: Resource not found
 components:
@@ -36,6 +37,8 @@ components:
     TCMElement:
       type: object
       properties:
+        level: 
+          type: integer
         code:
           type: string
         name: 
