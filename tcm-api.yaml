@@ -1,0 +1,42 @@
+openapi: 3.0.3
+info:
+  title: TCM - OpenAPI 3.0
+  description: |-
+    This is an API exposing the Technical Capability Map
+
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: nimat@orsted.com
+  version: 0.1.0
+servers:
+  - url: https://653c1tl936.execute-api.eu-west-1.amazonaws.com/tcm
+tags:
+  - name: tcm
+    description: Access the Technical Capability Map
+paths:
+  /tcm:
+    get:
+      tags:
+        - tcm
+      summary: Retrieve our Technical Capability Map
+      description: Update an existing pet by Id
+      operationId: getTCM
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                $ref: '#/components/schemas/TCMElement'          
+        '404':
+          description: Resource not found
+components:
+  schemas:
+    TCMElement:
+      type: object
+      properties:
+        code:
+          type: string
+        name: 
+          type: string
