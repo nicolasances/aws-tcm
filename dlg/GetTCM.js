@@ -6,7 +6,7 @@ exports.do = async (req, userContext, execContext) => {
     let client;
 
     try {
-        client = await mongo.MongoClient.connect(config.config.getMongoUrl(), { useUnifiedTopology: true });
+        client = await mongo.MongoClient.connect(config.config.getMongoUrl(), { useUnifiedTopology: true, tlsCAFile: `rds-combined-ca-bundle.pem` });
         const db = client.db(config.dbName);
 
         let result = await db.collection(config.collections.profiles).find().toArray();
@@ -14,7 +14,7 @@ exports.do = async (req, userContext, execContext) => {
         return {tcm: result};
 
     } catch (err) {
-        
+
         console.log(err);
 
         if (err && err.code) throw err;
