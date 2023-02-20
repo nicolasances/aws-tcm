@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: TCM - OpenAPI 3.0
+  title: TCM with VPC Link - OpenAPI 3.0
   description: |-
     This is an API exposing the Technical Capability Map
 
