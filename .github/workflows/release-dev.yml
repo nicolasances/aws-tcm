@@ -19,7 +19,7 @@ jobs:
 
     - name: Create DocDB PEM file
       run: |
-        echo "${{secrets.DB_CERT}}"
+        echo "${{secrets.DB_CERT}}" > ./rds-combined-ca-bundle.pem
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
