@@ -9,7 +9,7 @@ exports.do = async (req, userContext, execContext) => {
         client = await mongo.MongoClient.connect(config.config.getMongoUrl(), { useUnifiedTopology: true, tlsCAFile: `rds-combined-ca-bundle.pem` });
         const db = client.db(config.dbName);
 
-        let result = await db.collection(config.collections.profiles).find().toArray();
+        let result = await db.collection(config.collections.items).find().toArray();
 
         return {tcm: result};
 
